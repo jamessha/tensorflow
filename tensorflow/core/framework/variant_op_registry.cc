@@ -48,9 +48,9 @@ void UnaryVariantOpRegistry::RegisterShapeFn(const string& type_name,
                                              const VariantShapeFn& shape_fn) {
   CHECK(!type_name.empty()) << "Need a valid name for UnaryVariantShape";
   VariantShapeFn* existing = GetShapeFn(type_name);
-  CHECK_EQ(existing, nullptr)
-      << "Unary VariantShapeFn for type_name: " << type_name
-      << " already registered";
+  //CHECK_EQ(existing, nullptr)
+  //    << "Unary VariantShapeFn for type_name: " << type_name
+  //    << " already registered";
   shape_fns.insert(std::pair<StringPiece, VariantShapeFn>(
       GetPersistentStringPiece(type_name), shape_fn));
 }
@@ -101,9 +101,9 @@ void UnaryVariantOpRegistry::RegisterDecodeFn(
     const string& type_name, const VariantDecodeFn& decode_fn) {
   CHECK(!type_name.empty()) << "Need a valid name for UnaryVariantDecode";
   VariantDecodeFn* existing = GetDecodeFn(type_name);
-  CHECK_EQ(existing, nullptr)
-      << "Unary VariantDecodeFn for type_name: " << type_name
-      << " already registered";
+  //CHECK_EQ(existing, nullptr)
+  //    << "Unary VariantDecodeFn for type_name: " << type_name
+  //    << " already registered";
   decode_fns.insert(std::pair<StringPiece, VariantDecodeFn>(
       GetPersistentStringPiece(type_name), decode_fn));
 }
@@ -154,9 +154,9 @@ void UnaryVariantOpRegistry::RegisterDeviceCopyFn(
     const AsyncVariantDeviceCopyFn& device_copy_fn) {
   CHECK(!type_name.empty()) << "Need a valid name for UnaryVariantDeviceCopy";
   AsyncVariantDeviceCopyFn* existing = GetDeviceCopyFn(direction, type_name);
-  CHECK_EQ(existing, nullptr)
-      << "UnaryVariantDeviceCopy for direction: " << direction
-      << " and type_name: " << type_name << " already registered";
+  //CHECK_EQ(existing, nullptr)
+  //    << "UnaryVariantDeviceCopy for direction: " << direction
+  //    << " and type_name: " << type_name << " already registered";
   device_copy_fns.insert(
       std::pair<std::pair<VariantDeviceCopyDirection, StringPiece>,
                 AsyncVariantDeviceCopyFn>(
@@ -192,9 +192,9 @@ void UnaryVariantOpRegistry::RegisterUnaryOpFn(
     const VariantUnaryOpFn& unary_op_fn) {
   CHECK(!type_name.empty()) << "Need a valid name for UnaryVariantUnaryOp";
   VariantUnaryOpFn* existing = GetUnaryOpFn(op, device, type_name);
-  CHECK_EQ(existing, nullptr)
-      << "Unary VariantUnaryOpFn for type_name: " << type_name
-      << " already registered for device type: " << device;
+  //CHECK_EQ(existing, nullptr)
+  //    << "Unary VariantUnaryOpFn for type_name: " << type_name
+  //    << " already registered for device type: " << device;
   unary_op_fns.insert(
       std::pair<std::tuple<VariantUnaryOp, StringPiece, StringPiece>,
                 VariantUnaryOpFn>(
@@ -239,9 +239,9 @@ void UnaryVariantOpRegistry::RegisterBinaryOpFn(
     const VariantBinaryOpFn& add_fn) {
   CHECK(!type_name.empty()) << "Need a valid name for UnaryVariantBinaryOp";
   VariantBinaryOpFn* existing = GetBinaryOpFn(op, device, type_name);
-  CHECK_EQ(existing, nullptr)
-      << "Unary VariantBinaryOpFn for type_name: " << type_name
-      << " already registered for device type: " << device;
+  //CHECK_EQ(existing, nullptr)
+  //    << "Unary VariantBinaryOpFn for type_name: " << type_name
+  //    << " already registered for device type: " << device;
   binary_op_fns.insert(
       std::pair<std::tuple<VariantBinaryOp, StringPiece, StringPiece>,
                 VariantBinaryOpFn>(
